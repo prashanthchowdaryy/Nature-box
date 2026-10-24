@@ -515,7 +515,3 @@ a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation
 .sattu-feature .actions .btn-add { padding-inline: 2rem; }
 
 .hero-prices { flex-wrap: wrap; row-gap: 0.75rem; }
-
-/* Keep the brand colours as designed: opt out of phone dark mode / forced dark */
-:root { color-scheme: only light; }
-img, video, svg { forced-color-adjust: none; }
