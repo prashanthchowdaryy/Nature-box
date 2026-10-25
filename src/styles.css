@@ -516,10 +516,24 @@ a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation
 
 .hero-prices { flex-wrap: wrap; row-gap: 0.75rem; }
 
-/* Brand colours are fixed (yellow and white), in light and dark mode.
-   Every colour is set explicitly above, so declaring light + dark support only
-   stops the phone browser from auto-darkening the page. */
+/* Brand colours are fixed: mango yellow and white, in light AND dark mode.
+   The page declares dark-mode support (meta tag + this block) and sets the very same
+   colours for it, so the phone browser has no reason to auto-darken anything. */
 :root { color-scheme: light dark; }
-html, body { background-color: #fff; }
+html, body { background-color: #fff; color: #14342A; }
 html { scrollbar-color: #14342A #fff; }
 input, textarea, select, button, dialog { color-scheme: light; }
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light dark;
+    --ink: #14342A;
+    --muted: #44645A;
+    --mango: #FFC83D;
+    --pink: #FFB3BE;
+    --lime: #D6EA72;
+    --apricot: #FFD3A1;
+  }
+  html, body { background-color: #fff; color: #14342A; }
+  a { color: inherit; }
+  input, textarea, select { background-color: #fff; color: #14342A; }
+}
