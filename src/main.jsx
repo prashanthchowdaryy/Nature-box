@@ -156,7 +156,7 @@ function AddControl({ product }) {
   );
 }
 
-function Tile({ product }) {
+function Tile({ product, roomy = false }) {
   const { setSelected } = useShop();
   return (
     <article className="tile">
@@ -165,7 +165,7 @@ function Tile({ product }) {
       </button>
       <div className="tile-body">
         <div className="tile-head"><h3>{product.name}</h3><span className="price">{rupee(product.price)}</span></div>
-        <p>{product.note}</p>
+        <p>{roomy ? product.description : product.note}</p>
         <AddControl product={product} />
       </div>
     </article>
@@ -183,7 +183,7 @@ function MenuBrowser({ withAll = false }) {
       <div className="chips" role="group" aria-label="Filter menu">
         {tabs.map((c) => <button key={c} aria-pressed={category === c} className={category === c ? 'chip on' : 'chip'} onClick={() => setCategory(c)}>{c}</button>)}
       </div>
-      <div className="grid">{list.map((p) => <Tile key={p.id} product={p} />)}</div>
+      <div className={list.length <= 3 ? 'grid roomy' : 'grid'}>{list.map((p) => <Tile key={p.id} product={p} roomy={list.length <= 3} />)}</div>
     </>
   );
 }
@@ -308,11 +308,11 @@ function Home() {
       <section className="section band-lime">
         <div className="wrap more">
           <div>
-            <h2>More oats flavours are on the way.</h2>
-            <p>We keep growing the menu. New oats flavours and items will show up here as soon as they are ready.</p>
+            <h2>High protein range coming soon.</h2>
+            <p>Protein drinks, protein bars, high-protein food and more are on the way. Have a look at what is on the menu now, and check back soon.</p>
             <Link to="menu" className="btn btn-dark">See what is on now</Link>
           </div>
-          <img className="more-photo" src={BASE + 'photos/more-oats.webp'} alt="Upcoming Nature Box oats flavours: banana, fruit, chocolate, mango, strawberry, blueberry, dry fruits and apple cinnamon" width="1400" height="933" loading="lazy" />
+          <img className="more-photo" src={BASE + 'photos/high-protein.webp'} alt="Upcoming high-protein range from Nature Box: protein oats cups, bowl, energy ladu, protein bars and roasted nuts" width="1400" height="788" loading="lazy" />
         </div>
       </section>
 
