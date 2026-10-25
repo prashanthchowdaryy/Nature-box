@@ -537,3 +537,22 @@ input, textarea, select, button, dialog { color-scheme: light; }
   a { color: inherit; }
   input, textarea, select { background-color: #fff; color: #14342A; }
 }
+
+/* Menu tabs with only a few items: wide cards that fill the row (laptop) */
+@media (min-width: 900px) {
+  .grid.roomy { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 1.5rem; }
+  .grid.roomy .tile { flex-direction: row; }
+  .grid.roomy .tile-art { flex: 0 0 46%; aspect-ratio: auto; min-height: 24rem; border-bottom: 0; border-right: var(--line); }
+  .grid.roomy .tile-body { justify-content: center; gap: 0.75rem; padding: 2rem; }
+  .grid.roomy .tile-head h3 { font-size: clamp(1.4rem, 1rem + 1.2vw, 2rem); }
+  .grid.roomy .price { font-size: 1.35rem; }
+  .grid.roomy .tile-body p { flex: 0 1 auto; font-size: 1.05rem; line-height: 1.55; }
+}
+
+/* Build your own bowl: bigger video, balanced columns */
+.builder-promo .promo-video { width: min(100%, 32rem); aspect-ratio: 5 / 6; margin-inline: auto; }
+@media (min-width: 800px) {
+  .builder-promo .more { grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 6rem); }
+  .builder-promo .promo-video { margin-inline: auto 0; }
+  .builder-promo .more p { max-width: 34rem; font-size: 1.15rem; }
+}
